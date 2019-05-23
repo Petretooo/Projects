@@ -44,63 +44,62 @@ namespace ModelThis2
 
         static void creatingVehicle(int typeVehicleCommand)
         {
-            MotorVehicle vehicle = null;
-            if (typeVehicleCommand == 1)
+            switch (typeVehicleCommand)
             {
-                Console.Write("Power: ");
-                int power = int.Parse(Console.ReadLine());
-                Console.Write("Passengers: ");
-                int passengers = int.Parse(Console.ReadLine());
-                Console.Write("Cargo Weight: ");
-                double cargo = double.Parse(Console.ReadLine());
+                case 1:
+                    Console.Write("Power: ");
+                    int power = int.Parse(Console.ReadLine());
+                    Console.Write("Passengers: ");
+                    int passengers = int.Parse(Console.ReadLine());
+                    Console.Write("Cargo Weight: ");
+                    double cargo = double.Parse(Console.ReadLine());
 
-                Car car = new Car(power, passengers, cargo);
+                    Car car = new Car(power, passengers, cargo);
 
-                Console.WriteLine();
-                Console.WriteLine($"Where would you like to park the vehicle?\n" +
-                    $"1.Public Transportation Autopark\n" +
-                    $"2.Logistic Autopark\n" +
-                    $"0.Exit\n");
-                int parkingVehicle = int.Parse(Console.ReadLine());
-                parkingTheVehicle(car, parkingVehicle);
-            }
-            else if (typeVehicleCommand == 2)
-            {
-                Console.Write("Power: ");
-                int power = int.Parse(Console.ReadLine());
-                Console.Write("Passengers: ");
-                int passengers = int.Parse(Console.ReadLine());
-                Console.Write("Cargo Weight: ");
-                double cargo = double.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.WriteLine($"Where would you like to park the vehicle?\n" +
+                        $"1.Public Transportation Autopark\n" +
+                        $"2.Logistic Autopark\n" +
+                        $"0.Exit\n");
+                    int parkingVehicle = int.Parse(Console.ReadLine());
+                    parkingTheVehicle(car, parkingVehicle);
+                    break;
+                case 2:
+                    Console.Write("Power: ");
+                    power = int.Parse(Console.ReadLine());
+                    Console.Write("Passengers: ");
+                    passengers = int.Parse(Console.ReadLine());
+                    Console.Write("Cargo Weight: ");
+                    cargo = double.Parse(Console.ReadLine());
 
-                Bus bus = new Bus(power, passengers, cargo);
+                    Bus bus = new Bus(power, passengers, cargo);
 
-                Console.WriteLine();
-                Console.WriteLine($"Where would you like to park the vehicle?\n" +
-                    $"1.Public Transportation Autopark\n" +
-                    $"2.Logistic Autopark\n" +
-                    $"0.Exit\n");
-                int parkingVehicle = int.Parse(Console.ReadLine());
-                parkingTheVehicle(bus, parkingVehicle);
-            }
-            else if (typeVehicleCommand == 3)
-            {
-                Console.Write("Power: ");
-                int power = int.Parse(Console.ReadLine());
-                Console.Write("Passengers: ");
-                int passengers = int.Parse(Console.ReadLine());
-                Console.Write("Cargo Weight: ");
-                double cargo = double.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    Console.WriteLine($"Where would you like to park the vehicle?\n" +
+                        $"1.Public Transportation Autopark\n" +
+                        $"2.Logistic Autopark\n" +
+                        $"0.Exit\n");
+                    parkingVehicle = int.Parse(Console.ReadLine());
+                    parkingTheVehicle(bus, parkingVehicle);
+                    break;
+                case 3:
+                    Console.Write("Power: ");
+                    power = int.Parse(Console.ReadLine());
+                    Console.Write("Passengers: ");
+                    passengers = int.Parse(Console.ReadLine());
+                    Console.Write("Cargo Weight: ");
+                    cargo = double.Parse(Console.ReadLine());
 
-                Van van = new Van(power, passengers, cargo);
+                    Van van = new Van(power, passengers, cargo);
 
-                Console.WriteLine();
-                Console.WriteLine($"Where would you like to park the vehicle?\n" +
-                    $"1.Public Transportation Autopark\n" +
-                    $"2.Logistic Autopark\n" +
-                    $"0.Exit\n");
-                int parkingVehicle = int.Parse(Console.ReadLine());
-                parkingTheVehicle(van, parkingVehicle);
+                    Console.WriteLine();
+                    Console.WriteLine($"Where would you like to park the vehicle?\n" +
+                        $"1.Public Transportation Autopark\n" +
+                        $"2.Logistic Autopark\n" +
+                        $"0.Exit\n");
+                    parkingVehicle = int.Parse(Console.ReadLine());
+                    parkingTheVehicle(van, parkingVehicle);
+                    break;
             }
         }
         static void parkingTheVehicle(MotorVehicle vehicle, int parkingVehicle)
@@ -117,9 +116,8 @@ namespace ModelThis2
                 }
                 Console.WriteLine();
                 Console.WriteLine($"Please write 0, to return to the first menu.");
+                Console.WriteLine($"ATTENTION! - You can add THE SAME vehicle in the parking only once!!!");
                 parkingVehicle = int.Parse(Console.ReadLine());
-
-                //You can add vehicle in the parking only once!!!
                 if(true)
                 {
                     break;
