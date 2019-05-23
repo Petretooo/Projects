@@ -23,39 +23,8 @@ namespace ModelThis2
 
             while (typeVehicleCommand != 0)
             {
-                if (typeVehicleCommand == 1)
-                {
-                    MotorVehicle car = creatingVehicle(typeVehicleCommand);
+                creatingVehicle(typeVehicleCommand);
 
-                    Console.WriteLine($"Where would you like to park the vehicle?\n" +
-                    $"1.Public Transportation Autopark\n" +
-                    $"2.Logistic Autopark\n" +
-                    $"0.Exit\n");
-                    int parkingVehicle = int.Parse(Console.ReadLine());
-                    parkingTheVehicle(car, parkingVehicle);
-                }
-                else if (typeVehicleCommand == 2)
-                {
-                    MotorVehicle bus = creatingVehicle(typeVehicleCommand);
-
-                    Console.WriteLine($"Where would you like to park the vehicle?\n" +
-                    $"1.Public Transportation Autopark\n" +
-                    $"2.Logistic Autopark\n" +
-                    $"0.Exit\n");
-                    int parkingVehicle = int.Parse(Console.ReadLine());
-                    parkingTheVehicle(bus, parkingVehicle);
-                }
-                else if (typeVehicleCommand == 3)
-                {
-                    MotorVehicle van = creatingVehicle(typeVehicleCommand);
-
-                    Console.WriteLine($"Where would you like to park the vehicle?\n" +
-                    $"1.Public Transportation Autopark\n" +
-                    $"2.Logistic Autopark\n" +
-                    $"0.Exit\n");
-                    int parkingVehicle = int.Parse(Console.ReadLine());
-                    parkingTheVehicle(van, parkingVehicle);
-                }
                 Console.WriteLine();
                 Console.WriteLine($"What vehicle you want to create?\n" +
                                   $"1.Car\n" +
@@ -73,7 +42,7 @@ namespace ModelThis2
 
 
 
-        static MotorVehicle creatingVehicle(int typeVehicleCommand)
+        static void creatingVehicle(int typeVehicleCommand)
         {
             MotorVehicle vehicle = null;
             if (typeVehicleCommand == 1)
@@ -86,7 +55,14 @@ namespace ModelThis2
                 double cargo = double.Parse(Console.ReadLine());
 
                 Car car = new Car(power, passengers, cargo);
-                vehicle = car;
+
+                Console.WriteLine();
+                Console.WriteLine($"Where would you like to park the vehicle?\n" +
+                    $"1.Public Transportation Autopark\n" +
+                    $"2.Logistic Autopark\n" +
+                    $"0.Exit\n");
+                int parkingVehicle = int.Parse(Console.ReadLine());
+                parkingTheVehicle(car, parkingVehicle);
             }
             else if (typeVehicleCommand == 2)
             {
@@ -98,7 +74,14 @@ namespace ModelThis2
                 double cargo = double.Parse(Console.ReadLine());
 
                 Bus bus = new Bus(power, passengers, cargo);
-                vehicle = bus;
+
+                Console.WriteLine();
+                Console.WriteLine($"Where would you like to park the vehicle?\n" +
+                    $"1.Public Transportation Autopark\n" +
+                    $"2.Logistic Autopark\n" +
+                    $"0.Exit\n");
+                int parkingVehicle = int.Parse(Console.ReadLine());
+                parkingTheVehicle(bus, parkingVehicle);
             }
             else if (typeVehicleCommand == 3)
             {
@@ -110,13 +93,16 @@ namespace ModelThis2
                 double cargo = double.Parse(Console.ReadLine());
 
                 Van van = new Van(power, passengers, cargo);
-                vehicle = van;
+
+                Console.WriteLine();
+                Console.WriteLine($"Where would you like to park the vehicle?\n" +
+                    $"1.Public Transportation Autopark\n" +
+                    $"2.Logistic Autopark\n" +
+                    $"0.Exit\n");
+                int parkingVehicle = int.Parse(Console.ReadLine());
+                parkingTheVehicle(van, parkingVehicle);
             }
-            Console.WriteLine();
-            return vehicle;
-
         }
-
         static void parkingTheVehicle(MotorVehicle vehicle, int parkingVehicle)
         {
             while (parkingVehicle != 0)
@@ -133,8 +119,8 @@ namespace ModelThis2
                 Console.WriteLine($"Please write 0, to return to the first menu.");
                 parkingVehicle = int.Parse(Console.ReadLine());
 
-                //Something NEW!________________________________________________________________________________________
-                if(parkingVehicle == 1 || parkingVehicle == 2)
+                //You can add vehicle in the parking only once!!!
+                if(true)
                 {
                     break;
                 }
