@@ -1,7 +1,9 @@
+//СЪЩОТО КАТО ПРИ STUDENT, НО С ДРУГИ ПОЛЕТА
+
 public class Teachers extends Person {
 
-    String department;
-    int internship;
+    private String department;
+    private int internship;
 
     public Teachers(String name, String EGN, String department, int internship) {
         super(name, EGN);
@@ -23,6 +25,12 @@ public class Teachers extends Person {
 
     private void setInternship(int internship) {
         this.internship = internship;
+    }
+
+
+    @Override
+    protected String getInfo() {
+        return super.toString();
     }
 
     @Override
